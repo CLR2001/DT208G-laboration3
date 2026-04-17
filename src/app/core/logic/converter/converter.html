@@ -7,7 +7,7 @@
       [attr.id]="'from' + id" 
       [attr.name]="'from' + id" 
       [(ngModel)]="from"
-      (input)="onInputChange('from')"> 
+      (input)="onInput('from')"> 
     <p>{{ unit1 }}</p>
 
     <label [attr.for]="'to' + id">Till:</label>
@@ -17,7 +17,7 @@
       [attr.id]="'to' + id" 
       [attr.name]="'to' + id" 
       [(ngModel)]="to"
-      (input)="onInputChange('to')">
+      (input)="onInput('to')">
     <p>{{ unit2 }}</p>
   </div>
   <div class="converter-buttons">

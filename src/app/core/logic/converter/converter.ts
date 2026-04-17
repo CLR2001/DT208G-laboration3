@@ -9,33 +9,60 @@ import { Icon } from '../icons/icons';
   styleUrl: './converter.scss',
   encapsulation: ViewEncapsulation.Emulated
 })
+
 export class Converter {
   from: string;
   to: string;
   @Input() id!: string;
-  @Input() conversion!: string;
   @Input() unit1!: string;
   @Input() unit2!: string;
+  @Input() conversion!: string;
   originalSwap: boolean = true;
   constructor() {
     this.to = ''
     this.from = ''
   }
 
-  feetToMeters(feet: number): number {
-    return feet / 3.28084;
+  private readonly conversions = {
+    distance: {
+      imperialToMetric: (value: number) => value / 3.2084,
+      metricToImperial: (value: number) => value * 3.2084,
+      decimals: 4
+    },
+    temperature: {
+      imperialToMetric: (value: number) => (value - 32) / 1.8,
+      metricToImperial: (value: number) => (value * 1.8) + 32,
+      decimals: 1
+    }
   }
 
-  metersToFeet(meters: number): number {
-    return meters * 3.28084;
+  onInput(direction: 'from' | 'to'): void {
+    const valueToConvert = direction === 'from' ? this.from : this.to;
+
+    if (valueToConvert === '' || !valueToConvert) {
+      this.reset();
+      return;
+    }
+    
+    const key = this.conversion as keyof typeof this.conversions;
+    const settings = this.conversions[key];
+    
+    const useImperialToMetric = (direction === 'from' && this.originalSwap) || (direction === 'to' && !this.originalSwap);
+    const property = useImperialToMetric ? 'imperialToMetric' : 'metricToImperial';
+    const formulaToUse = settings[property];
+    
+    const result = formulaToUse(Number(valueToConvert));
+
+    if (direction === 'from') {
+      this.to = result.toFixed(settings.decimals);
+    } else {
+      this.from = result.toFixed(settings.decimals);
+    }
   }
 
-  fahrenheitToCelsius(fahrenheit: number): number {
-    return (fahrenheit - 32) / 1.8;
-  }
-
-  celsiusToFahrenheit(celsius: number): number {
-    return (celsius * 1.8) + 32;
+  reset() {
+    this.from = '';
+    this.to = '';
   }
 
   swapUnits(): void {
@@ -46,55 +73,7 @@ export class Converter {
     const temp2 = this.from;
     this.from = this.to;
     this.to = temp2;
-  }
 
-  onInputChange(direction: string): void {
-    if (this.originalSwap) {
-      switch (this.conversion) {
-        case 'distance':
-          if (direction === 'from') {
-            this.to = this.feetToMeters(Number(this.from)).toFixed(4).toString();
-          } else {
-            this.from = this.feetToMeters(Number(this.to)).toFixed(4).toString();
-          }
-          break;
-        case ('temperature'):
-          if (direction === 'from') {
-            this.to = this.fahrenheitToCelsius(Number(this.from)).toFixed(1).toString();
-          } else {
-            this.from = this.fahrenheitToCelsius(Number(this.to)).toFixed(1).toString();
-          }
-          break;
-        default: 
-          console.log('Not a valid conversion unit.');
-      }
-    } else {
-      switch (this.conversion) {
-        case 'distance':
-          if (direction === 'from') {
-            this.to = this.metersToFeet(Number(this.from)).toFixed(4).toString();
-          } else {
-            this.from = this.metersToFeet(Number(this.to)).toFixed(4).toString();
-          }
-          break;
-        case ('temperature'):
-          if (direction === 'from') {
-            this.to = this.celsiusToFahrenheit(Number(this.from)).toFixed(1).toString();
-          } else {
-            this.from = this.celsiusToFahrenheit(Number(this.to)).toFixed(1).toString();
-          }
-          break;
-        default: 
-          console.log('Not a valid conversion unit.');
-      }
-    }
-    if (this.from === '' || this.to === '') {
-      this.reset();
-    }
-  }
-
-  reset() {
-    this.from = '';
-    this.to = '';
+    this.originalSwap = !this.originalSwap
   }
 }
