@@ -1,4 +1,4 @@
-@use '../core/' as *;
+@use 'variables' as *;
 
 app-root {
   min-height: 100svh;
@@ -13,6 +13,7 @@ app-root {
 }
 
 .main-content {
+  grid-template-columns: 0 1fr;
   margin: 3rem auto;
   padding: 0 $standard-padding;
 }

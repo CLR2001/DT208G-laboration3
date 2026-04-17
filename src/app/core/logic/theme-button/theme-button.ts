@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
-import { Icon } from '../icon/icon';
+import { Icon } from '../icons/icons';
 
 @Component({
   selector: 'app-theme',
   standalone: true,
   imports: [Icon],
-  template: `
-    <button (click)="toggleTheme()">
-      <app-icon [name]="isDarkMode ? 'light-mode' : 'dark-mode'" />
-    </button>
-  `
+  templateUrl: './theme-button.html'
 })
 export class Theme {
   isDarkMode = false;
