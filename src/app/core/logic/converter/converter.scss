@@ -1,13 +1,5 @@
 @use '../../../scss/core' as *;
 
-:root {
-  --button-bg: #{$color-accent};
-}
-
-:root[data-theme="dark"] {
-  --button-bg: rgb(49, 44, 61);
-}
-
 .converter-box {
   display: grid;
   gap: 1rem;
@@ -51,7 +43,7 @@
     border: 1px solid black;
     border-radius: 0.5ch;
     color: $text-primary;
-    background-color: var(--button-bg);
+    background-color: var(--convert-btn-bg);
     &:hover {
       filter: brightness(1.2);
     }
@@ -59,6 +51,9 @@
       filter: brightness(0.8);
     }
   }
+}
+
+:host ::ng-deep{
   .icon {
     width: 1.5em;
   }
