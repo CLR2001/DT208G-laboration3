@@ -1,3 +1,33 @@
-<div class="main-content">
-
+<div class="main-content about-main">
+  <h1>Om laborationen</h1>
+  <section class="about-section">
+    <h2>Lösning</h2>
+    <h3>Bas</h3>
+    <p>
+      Webbplatsen är skapad med ramverket angular. Webbplatsen är en SPA (Single Page Application) och detta löstes smidigt med angulars inbyggda router. Detta tillät användningen av routerLink istället för href på a-taggarna och på så sätt sköter angular navigeringen utan att ladda om sidan. Utöver det användes RouterLinkActive för att kunna placera en indikator på den undersida man är på. Det är den senast klickade länken som får active klassen.
+    </p>
+    <h3>Komponenter</h3>
+    <p>
+      All HTML är importerat från olika komponenter. Exempelvis är både header och footer sina egna komponenter och även varje undersidas innehåll är egna komponenter. På detta sätt går det att klippa och klistra in hela HTML stycken där man vill. Varje komponent innehåller sin egna scss-fil för maximal modularitet.
+    </p>
+    <h3>Konvertering</h3>
+    <p>
+      Konverteringen för de olika enheterna utnyttjar angulars data-binding för att enkelt läsa in input värdena användaren skriver in. Själva konverteringen är sedan skapad med hjälp av en klass. De olika formlerna som ska användas sparas i ett objekt som i sin tur innehåller flera olika objekt som varierar beroende på vilka enheter det är man vill konvertera, i detta fall distans eller temperatur. Eftersom konverteringen ska kunna ske åt båda hållen användes in-parametrar och variabler för att hålla koll på vilken uträkning som ska göras för att sedan skriva ut det värde.
+    </p>
+    <p>
+      För knapparna rensa och byta håll användes angulars inbyggda (click)-funktionalitet istället för klassiska event-listeners.
+    </p>
+  </section>
+  <section class="about-section">
+    <h2>Slutsatser</h2>
+    <h3>Positivt</h3>
+    <p>
+      Överlag har jag blivit positivt överraskad över ramverket angular. Har tidigare varit lite skeptisk till ramverk på grund av inlärningskurvan men den var faktiskt inte så brant som jag hade trott, det mesta var väldigt logiskt. Att inte behöva skapa en massa HTML-element i JavaScript för att få en dynamisk sida så var det mycket enklare att skriva vanlig HTML i komponenterna istället. Andra saker som att automatiskt skriva imports högst upp i filerna som behövde var också mycket användbart.
+    </p>
+    <h3>Negativt</h3>
+    <p>
+      Något negativt var hur CSS fungerade, speciellt prioriteringen. När angular kör sin build lägger den till olika taggar på alla element vilket jag tror stör för prioriteringen. Exempelvis kunde en global img-regel skriva över en img vars egenskaper kommer från en klass. På grund av detta hade jag faktiskt mest strul med css/sass vilket brukar vara det lättaste för mig annars. Det var inte nödvändigtvist svårare men koden bråkade med mig mer än vanligt :(
+    </p>
+    <p>Avslutningsvis kan jag nämna att jag inte är lika "rädd" för ramverk som jag var innan laborationens start. Kommer troligtvis testa flera olika i framöver för att se vilket som ramverk som tillåter mig att vara så lat som möjligt. Alltid gött med automatisering.</p>
+  </section>
 </div>
