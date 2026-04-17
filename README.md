@@ -1,4 +1,4 @@
-# ◈ Laboration
+# ◈ Laboration 3
 Detta repository innehåller laboration 3 för kursen DT208G.
 
 ## ✦ Projektbeskrivning
