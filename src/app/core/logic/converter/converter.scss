@@ -1,0 +1,86 @@
+@use '../../../scss/core' as *;
+
+.converter-box {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 500px);
+  margin: auto;
+  padding: min(2rem, 6vw);
+  border-radius: 1rem;
+  background-color: $color-primary;
+  input {
+    width: 100%;
+    padding: 0.5ch;
+    border: 1px solid black;
+    border-radius: 0.35rem;
+    background-color: rgb(240, 240, 240);
+  }
+}
+
+.input-field {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  place-items: center;
+  gap: 1ch;
+  & *:nth-child(3n + 1) {
+    justify-self: end;
+  }
+  & *:nth-child(3n + 2) {
+    justify-self: center;
+  }
+  & *:nth-child(3n + 3) {
+    justify-self: start;
+  }
+}
+
+.converter-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 0 2rem;
+  button {
+    padding: 1ch;
+    border: 1px solid black;
+    border-radius: 0.5ch;
+    color: $text-primary;
+    background-color: var(--convert-btn-bg);
+    &:hover {
+      filter: brightness(1.2);
+    }
+    &:active {
+      filter: brightness(0.8);
+    }
+  }
+}
+
+:host ::ng-deep{
+  .icon {
+    width: 1.5em;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .input-field {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: repeat(4, 1fr);
+    place-items: center;
+    gap: 0 1ch;
+    margin-right: 1rem;
+    label:nth-child(1) {
+      grid-column: 1 / 3;
+      grid-row: 1 / 2;
+      justify-self: start;
+    }
+    label ~ label {
+      grid-column: 1 / 3;
+      grid-row: 3 / 4;
+      justify-self: start;
+    }
+  }
+
+  .converter-buttons {
+    padding: 0;
+  }
+}

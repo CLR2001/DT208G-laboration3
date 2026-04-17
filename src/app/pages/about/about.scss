@@ -1,0 +1,22 @@
+@use '../../scss/core/' as *;
+
+.about-main {
+  display: grid;
+  gap: 2rem;
+  place-items: center;
+  height: fit-content;
+  line-height: 1.7;
+}
+
+.about-section {
+  max-width: $p-width;
+  h2, h3 {
+    margin-bottom: 1ch;
+  }
+  p ~ p {
+    margin-top: 1.5ch;
+  }
+  p ~ h3 {
+    margin-top: 3rem;
+  }
+}

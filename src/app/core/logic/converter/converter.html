@@ -1,0 +1,27 @@
+<section class="converter-box">
+  <div class="input-field">
+    <label [attr.for]="'from' + id">Från:</label>
+    <input 
+      type="text" 
+      autocomplete="off"
+      [attr.id]="'from' + id" 
+      [attr.name]="'from' + id" 
+      [(ngModel)]="from"
+      (input)="onInput('from')"> 
+    <p>{{ unit1 }}</p>
+
+    <label [attr.for]="'to' + id">Till:</label>
+    <input 
+      type="text" 
+      autocomplete="off"
+      [attr.id]="'to' + id" 
+      [attr.name]="'to' + id" 
+      [(ngModel)]="to"
+      (input)="onInput('to')">
+    <p>{{ unit2 }}</p>
+  </div>
+  <div class="converter-buttons">
+    <button (click)="reset()">Rensa</button>
+    <button (click)="swapUnits()"> <app-icons [name]="'arrow-down-up'"/></button>
+  </div>
+</section>

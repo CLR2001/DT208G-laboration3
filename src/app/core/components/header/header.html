@@ -2,9 +2,15 @@
   <div class="header-content">
     <nav>
       <ul>
-        <li><a routerLink="/">Startsida</a></li>
-        <li><a routerLink="conversion">Konvertering</a></li>
-        <li><a routerLink="about">Om</a></li>
+        <li routerLinkActive="active-page" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/">Startsida</a>
+        </li>
+        <li routerLinkActive="active-page">
+          <a routerLink="conversion">Konvertering</a>
+        </li>
+        <li routerLinkActive="active-page">
+          <a routerLink="about">Om</a>
+        </li>
       </ul>
     </nav>
   </div>

@@ -1,4 +1,4 @@
-@use '../core/' as *;
+@use 'variables' as *;
 
 app-root {
   min-height: 100svh;
@@ -13,6 +13,6 @@ app-root {
 }
 
 .main-content {
-  margin: 3rem auto;
-  padding: 0 $standard-padding;
+  height: 100%;
+  padding: 3rem $standard-padding;
 }

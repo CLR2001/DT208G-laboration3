@@ -1,3 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-@use './app/scss/core';
-@use './app/scss/layout';
+@use './app/scss/core' as *;
+
+:root {
+  --convert-btn-bg: #{$color-accent};
+  --hero-image: url(./images/layered-waves-haikei-light.svg);
+}
+
+:root[data-theme="dark"] {
+  --convert-btn-bg: rgb(49, 44, 61);
+  --hero-image: url(./images/layered-waves-haikei-dark.svg);
+}

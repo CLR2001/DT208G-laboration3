@@ -1,13 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-icon',
+  selector: 'app-icons',
   standalone: true,
-  template: `
-    <svg class="icon">
-      <use [attr.href]="'/icons.svg#icon-' + name"></use>
-    </svg>
-  `
+  templateUrl: './icons.html'
 })
 export class Icon {
   @Input() name!: string;

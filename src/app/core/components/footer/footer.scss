@@ -6,6 +6,9 @@ footer {
   a {
     text-decoration: underline;
   }
+}
+
+:host ::ng-deep{
   .icon {
     width: 1.5em;
     stroke: $text-muted;

@@ -1,5 +1,6 @@
 $standard-padding: clamp(1.5rem, 5vw, 3rem);
 $global-font-clamp: clamp(1rem, 0.1vw + 1rem, 1.125rem);
+$p-width: clamp(40ch, 80%, 60ch);
 $scrollbar-width: var(--scrollbar-width);
 $header-height: var(--header-height);
 $color-primary: var(--color-primary);
@@ -27,7 +28,7 @@ $text-muted-inverse: var(--text-muted-inverse);
 
 @mixin dark-theme() {
   --color-primary: rgb(22, 22, 26);
-  --color-secondary: black;
+  --color-secondary: #001122;
   --color-accent: rgb(0, 174, 255);
   --color-background: #121212;
   --color-background-inverse: #F8FAFC;
