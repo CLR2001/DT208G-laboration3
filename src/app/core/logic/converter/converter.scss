@@ -1,5 +1,13 @@
 @use '../../../scss/core' as *;
 
+:root {
+  --button-bg: #{$color-accent};
+}
+
+:root[data-theme="dark"] {
+  --button-bg: rgb(49, 44, 61);
+}
+
 .converter-box {
   display: grid;
   gap: 1rem;
@@ -43,6 +51,35 @@
     border: 1px solid black;
     border-radius: 0.5ch;
     color: $text-primary;
-    background-color: $color-accent;
+    background-color: var(--button-bg);
+  }
+  .icon {
+    width: 1.5em;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .input-field {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: repeat(4, 1fr);
+    place-items: center;
+    gap: 0 1ch;
+    margin-right: 1rem;
+    label:nth-child(1) {
+      grid-column: 1 / 3;
+      grid-row: 1 / 2;
+      justify-self: start;
+    }
+    label ~ label {
+      grid-column: 1 / 3;
+      grid-row: 3 / 4;
+      justify-self: start;
+    }
+  }
+
+  .converter-buttons {
+    padding: 0;
   }
 }
