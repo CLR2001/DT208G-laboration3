@@ -52,6 +52,12 @@
     border-radius: 0.5ch;
     color: $text-primary;
     background-color: var(--button-bg);
+    &:hover {
+      filter: brightness(1.2);
+    }
+    &:active {
+      filter: brightness(0.8);
+    }
   }
   .icon {
     width: 1.5em;

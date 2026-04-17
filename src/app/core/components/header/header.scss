@@ -17,6 +17,10 @@ header {
   }
 }
 
+nav li {
+  position: relative;
+}
+
 .active-page {
   &::after {
     content: "";
